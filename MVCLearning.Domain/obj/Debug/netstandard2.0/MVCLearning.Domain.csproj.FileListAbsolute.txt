@@ -1,0 +1,8 @@
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\bin\Debug\netstandard2.0\MVCLearning.Domain.deps.json
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\bin\Debug\netstandard2.0\MVCLearning.Domain.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\bin\Debug\netstandard2.0\MVCLearning.Domain.pdb
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\obj\Debug\netstandard2.0\MVCLearning.Domain.csprojAssemblyReference.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\obj\Debug\netstandard2.0\MVCLearning.Domain.AssemblyInfoInputs.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\obj\Debug\netstandard2.0\MVCLearning.Domain.AssemblyInfo.cs
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\obj\Debug\netstandard2.0\MVCLearning.Domain.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Domain\obj\Debug\netstandard2.0\MVCLearning.Domain.pdb

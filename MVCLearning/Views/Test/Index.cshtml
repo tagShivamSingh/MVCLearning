@@ -1,0 +1,640 @@
+﻿@model MVCLearning.Models.EmployeeViewModel
+@{
+    ViewBag.Title = "Index";
+    //Layout = null;
+}
+
+<div class="panel panel-body">
+
+    <div class="col-md-3">
+            @{Html.RenderAction("SideMenu", "Test"); }
+
+
+        </div>
+    <div class="col-md-9">
+        <div class="well">
+            <a href="#" class="btn btn-primary" onclick="AddEditEmployee(0)">New</a>
+            <a href="#" class="btn btn-success" onclick="SendOTP()">Send OTP</a>
+        </div>
+        <div class="well">
+            <div class="col-md-3">
+            <input type="text" id="EName" class="form-control" />
+        </div>
+        <div class="col-md-3">
+            <a href="#" class="btn btn-primary" onclick="FilterRecord()">Filter</a>
+        </div>
+            <div class="clearfix"></div>
+            </div>
+        <table class="display" id="MyDataTable">
+            <thead>
+                <tr>
+                    <th>
+                        EmployeeName
+                    </th>
+                    <th>
+                        Department
+                    </th>
+                    <th>
+                        Address
+                    </th>
+                    <th>
+                        EmployeeId
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">AddEdit Employee</h3>
+                    </div>
+                    <div class="modal-body" id="myModalBodyDiv1">
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <input type="hidden" id="hiddenEmployeeId" />
+
+
+        @*<input type="text" class="form-control" id="textAutoComplete" />
+        <a class="btn btn-danger" onclick="SendEmail()">Click To Send Email</a>*@
+        @*<ul class="list-group" id="SortableGallery" style="cursor:move">
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/images/IMG-20200508-WA0001.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/images/IMG-20200508-WA0001.jpg"/>
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/images/IMG-20200508-WA0001.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/images/IMG-20200508-WA0001.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/images/IMG-20200508-WA0001.jpg" />
+                </div>
+            </li>
+            <li class="list-group-item col-md-4">
+                <div>
+                    <img class="img-responsive" src="~/Content/images/IMG-20200508-WA0001.jpg" />
+                </div>
+            </li>
+        </ul>*@
+
+
+
+        @*<div class="col-md-5">
+            <ul class="list-group" id="ItemList">
+                <li class="list-group-item-heading list-group-item active">
+                    <h4 class="list-group-item-text">Item Available In My Shop</h4>
+
+                </li>
+                @foreach(var item in ViewBag.ItemList)
+                {
+                    <li class="list-group-item">
+                        <div class="checkbox">
+                            <input type="checkbox" id="check_@item.ItemID" checked="@item.IsAvailable" />
+                            <label for="check_@item.ItemID">@item.ItemName</label>
+                        </div>
+                    </li>
+                }
+                <li class="list-group-item">
+                    <a href="#" class="btn btn-success btn-block" onclick="SaveList()">Update Item</a>
+                </li>
+            </ul>
+        </div>*@
+
+
+
+
+
+
+
+
+        @*@if (ViewBag.CountryList != null)
+        {
+            @Html.DropDownListFor(m => m.CountryId, ViewBag.CountryList as SelectList, "--Select Country--", new { @class = "form-control" })
+
+            @Html.DropDownListFor(m => m.StateId, new SelectList(""), "--Select State--", new { @class = "form-control" })
+
+        }*@
+
+        @*@Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Search here" })
+
+        <img src="~/Content/InternetSlowdown_Day.gif" height="20" width="20" display:none" id="loader" />
+
+        <table class="table table-striped">
+            <tr>
+                <th>
+                    Name
+                </th>
+                <th>
+                    DepartmentName
+                </th>
+                <th>
+                    Address
+                </th>
+                <th>
+                    Action
+                </th>
+            </tr>
+            <tbody id="employeeRow">
+                @if (ViewBag.EmployeeList != null)
+                {
+                    foreach (var item in ViewBag.EmployeeList)
+                    {
+
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.dname</td>
+                            <td>@item.Address</td>
+                            <td><a href="#"><i class="glyphicon glyphicon-eye-open"></i>View</a></td>
+
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>*@
+
+
+        @*<div class="btn btn-primary">
+            <input type="file" id="imageBrowse" />
+        </div>
+        <hr />
+        <div class="col-md-4">
+            <div id="imgPreview" class="thumbnail" style="display:none">
+                <img class="img-responsive" id="targetImg" />
+                <div class="caption">
+                    <a href="#" onclick="ClearPreview()"><i class="glyphicon glyphicon-trash"></i></a>
+                    <span id="description"></span>
+                </div>
+                <a href="#" class="btn btn-default" onclick="UploadImage()">Upload</a>
+            </div>
+            <input type="text" class="form-control" id="url" />
+            <a href="#" class="btn btn-primary btn-block" onclick="UploadImage()">Save Image by URL</a>
+        </div>
+        <div class="col-md-2 thumbnail" id="uploadedImage">
+            <img src="~/Content/InternetSlowdown_Day.gif" height="20" style="display:none" id="loader" />
+        </div>*@
+    </div>
+
+</div>
+
+
+
+@*<div class="panel panel-body">
+        <div class="col-md-3">
+
+            <img src="~/Content/InternetSlowdown_Day.gif" />
+        </div>
+        <div class="col-md-3">
+            <img src="~/Content/InternetSlowdown_Day.gif" />
+
+        </div>
+        <div class="col-md-3">
+            <img src="~/Content/InternetSlowdown_Day.gif" />
+
+        </div>
+        <div class="col-md-3">
+            <img src="~/Content/InternetSlowdown_Day.gif" />
+
+        </div>
+
+    </div>*@
+
+
+
+
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+    <div class="container" style="width:40%;margin-top:2%">
+
+
+        <table class="table table-responsive">
+            <tr>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+            <tbody>
+
+                @if (ViewBag.EmployeeList != null)
+                {
+
+                    foreach (var item in ViewBag.EmployeeList)
+                    {
+                        <tr id="row_@item.EmployeeId">
+                            <td>@item.Name</td>
+                            <td>@item.dname</td>
+                            <td>@item.Address</td>
+                            <td><a href="#" class="btn btn-danger" onclick="ConfirmDelete(@item.EmployeeId)"><i class="glyphicon glyphicon-trash"></i></a></td>
+                            <td><a href="#" class="btn btn-success" onclick="ShowEmployee(@item.EmployeeId)"><i class="glyphicon glyphicon-eye-open"></i></a></td>
+                            <td><a href="#" class="btn btn-success" onclick="AddEditEmployee(@item.EmployeeId)"><i class="glyphicon glyphicon-pencil"></i> </a> </td>
+
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+        <a href="#" class="btn btn-primary" onclick="AddEditEmployee(0)">New</a>
+
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">Delete Employee</h3>
+                    </div>
+                    <div class="modal-body" id="myModalBodyDiv">
+                        <div style="text-align:center;display:none" id="loaderDiv">
+                            <img src="~/Content/InternetSlowdown_Day.gif" width="150" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-default" data-dismiss="modal">Cancel</a>
+                        <a href="#" class="btn btn-success" onclick="DeleteEmployee()">Confirm</a>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="modal fade" id="myModal1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <a href="#" class="close" data-dismiss="modal">&times;</a>
+                        <h3 class="modal-title">AddEdit Employee</h3>
+                    </div>
+                    <div class="modal-body" id="myModalBodyDiv1">
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <input type="hidden" id="hiddenEmployeeId" />
+
+
+    </div>
+
+    <script>
+
+        $(document).ready(function () {
+            $("#btnSubmit").click(function () {
+
+                //debugger
+                $("#loaderDiv").show();
+                var myFormdata = $("#myForm").serialize();
+                $.ajax({
+                    type: "POST",
+                    url: "/Test/Index",
+                    data: myFormdata,
+                    success: function () {
+                        $("#loaderDiv").hide();
+                        $("#myModal").modal("hide");
+                    }
+                })
+
+            })
+        })
+        var ConfirmDelete = function (EmployeeId) {
+            $("#hiddenEmployeeId").val(EmployeeId);
+            $("#myModal").modal('show');
+        }
+
+        var DeleteEmployee = function () {
+            $("#loaderDiv").show();
+            var empId = $("#hiddenEmployeeId").val();
+            $.ajax({
+                type: "POST",
+                url: "/Test/DeleteEmployee",
+                data: { EmployeeId: empId },
+                success: function (result) {
+                    $("#loaderDiv").hide();
+                    $("#myModal").modal("hide");
+                    $("#row_" + empId).remove();
+                }
+            })
+        }
+        var ShowEmployee = function (employeeId) {
+            var url = "/Test/ShowEmployee?EmployeeId=" + employeeId;
+            $("#myModalBodyDiv").load(url, function () {
+                $("#myModal").modal("show");
+
+            })
+            //$.ajax({
+            //    type: "POST",
+            //    url: "/Test/ShowEmployee",
+            //    data: { EmployeeId: employeeId },
+            //    success: function (response) {
+            //        $("#myModalBodyDiv").html(response);
+            //        $("#myModal").modal("show");
+            //    }
+            //})
+        }
+        var AddEditEmployee = function (employeeId) {
+
+            var url = "/Test/AddEditEmployee?EmployeeId=" + employeeId;
+
+            $("#myModalBodyDiv1").load(url, function () {
+                $("#myModal1").modal("show");
+
+            })
+
+        }
+    </script>
+
+
+    @section MySection{
+        <h2>Welcome to ASP.NET</h2>
+
+        }*@
+@*<script src="~/Scripts/jquery-3.4.1.min.js"></script>*@
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+
+        //GetEmployeeRecord();
+          BindDataTable();
+
+    })
+    //var GetEmployeeRecord = function () {
+    //    $.ajax({
+    //        type: "Post",
+    //        url: "/Test/GetEmployeeRecord",
+    //        success: function (response) {
+    //            BindDataTable(response);
+    //        }
+    //    })
+    //}
+    var oTable;
+    var FilterRecord = function () {
+        BindDataTable();
+    }
+    var BindDataTable = function (response) {
+
+        if ($.fn.DataTable.isDataTable("#MyDataTable")) {
+            debugger
+            oTable.draw();
+        }
+
+        else {
+            debugger
+            oTable= $("#MyDataTable").DataTable({
+                "bServerSide": true,
+                "sAjaxSource": "/Test/GetEmployeeRecord",
+                "fnServerData": function (sSource, aoData, fnCallback) {
+
+                    var EName = $("#EName").val();
+                    aoData.push({ "name": "EName", "value": EName });
+
+
+
+                    $.ajax({
+                        type: "Get",
+                        data: aoData,
+                        url: sSource,
+                        success: fnCallback
+                    })
+                },
+                "aoColumns": [
+                    { "mData": "Name" },
+                    { "mData": "dname" },
+                    { "mData": "Address" },
+                    {
+                        "mData": "EmployeeId",
+                        "render": function (EmployeeId, type, full, meta) {
+                            debugger
+                            return '<a href="#" onclick="AddEditEmployee(' + EmployeeId + ')"><i class="glyphicon glyphicon-pencil"></i></a>'
+                        }
+                    },
+
+                ]
+            });
+
+        }
+    }
+    var AddEditEmployee = function (employeeId) {
+
+        var url = "/Test/AddEditEmployee?EmployeeId=" + employeeId;
+
+        $("#myModalBodyDiv1").load(url, function () {
+            $("#myModal1").modal("show");
+
+        })
+
+    }
+
+
+
+
+
+
+
+
+
+    var SendEmail = function () {
+        $.ajax({
+            type: "Post",
+            url: "Test/SendMailToUser",
+            success: function (data) {
+                if (data == true) {
+                    alert("Success");
+                }
+                else {
+                    alert("Fail");
+                }
+            }
+        })
+    }
+
+
+
+
+    $("#textAutoComplete").autocomplete({
+        source: function (request, response) {
+            var text = $("#textAutocomplete").val();
+            $.ajax({
+                type: "GET",
+                url: "/Test/GetSuggestion",
+                data: { text: request.term },
+                success: function (data) {
+                    response($.map(data, function (item) {
+                        return {lable:item,value:item}
+                    }))
+                }
+            })
+        }
+    })
+
+
+
+    //$("#SortableGallery").sortable({
+    //    update: function () {
+    //        alert("Wow");
+    //    }
+    //});
+
+    //var SaveList = function () {
+    //    var arrItem = [];
+    //    var commaSeparatedIds = "";
+    //    $("#ItemList li input[type=checkbox]").each(function (index, val) {
+    //        debugger
+    //        var checkId = $(val).attr("id");
+    //        var arr = checkId.split('_');
+    //        var currentCheckedboxId = arr[1];
+    //        var IsChecked = $("#" + checkId).is(":checked", true);
+    //        if (IsChecked) {
+    //            arrItem.push(currentCheckedboxId);
+    //        }
+    //    })
+    //    if (arrItem.length != 0) {
+    //        commaSeparatedIds = arrItem.toString();
+    //        $.ajax({
+    //            type: "Post",
+    //            url: "/Test/SaveList",
+    //            data: { ItemList: commaSeparatedIds },
+    //            success: function (response) {
+
+    //            }
+    //        })
+    //    }
+    //}
+
+
+    //$(document).ready(function () {
+    //    $("#Name").keydown(function () {
+    //        $("#loader").show();
+    //        var searchtext = $(this).val();
+    //        //debugger
+    //        $.ajax({
+    //            type: "Post",
+    //            url: "/Test/GetSearchRecord?SearchText=" + searchtext,
+    //            contentType:"html",
+    //            success: function (response) {
+    //                $("#loader").hide();
+    //                $("#employeeRow").html(response);
+    //            }
+    //        })
+
+
+    //    })
+
+
+
+    //})
+    //$(document).ready(function () {
+    //    $("#imageBrowse").change(function () {
+    //        var File = this.files;
+    //        if (File && File[0]) {
+    //            ReadImage(File[0]);
+    //        }
+    //    })
+    //})
+
+    //var ReadImage = function (file) {
+    //    var reader = new FileReader;
+    //    var image = new Image;
+    //    reader.readAsDataURL(file);
+    //    reader.onload = function (_file) {
+    //        image.src = _file.target.result;
+    //        image.onload = function () {
+    //            var height = this.height;
+    //            var width = this.width;
+    //            var type = file.type;
+    //            var size = ~~(file.size / 1024) + "KB";
+    //            $("#targetImg").attr('src', _file.target.result);
+    //            $("#description").text("Size:" + size + "," + height + "X " + width + ", " + type + "");
+    //            $("#imgPreview").show();
+
+    //        }
+    //    }
+    //}
+    //var ClearPreview = function () {
+    //    $("#imageBrowse").val('');
+    //    $("#description").text('');
+    //    $("#imgPreview").hide();
+
+    //}
+
+    //var UploadImage = function () {
+    //    $("#loader").show();
+    //    var file = $("#imageBrowse").get(0).files;
+    //    var url = $("#url").val();
+    //    var data = new FormData;
+    //    data.append("ImageFile", file[0]);
+    //    data.append("ProductName", "SamsungA8");
+    //    data.append("ImageUrl", url);
+    //    $.ajax({
+    //        type: "Post",
+    //        url: "/Test/ImageUpload",
+    //        data: data,
+    //        contentType: false,
+    //        processData: false,
+    //        success: function (imgID) {
+    //            $("#loader").hide();
+
+    //            ClearPreview();
+    //            $("#uploadedImage").append('<img src="/Test/ImageRetrieve?imgID=' + imgID + '" class="img-responsive thumbnail"/>');
+
+    //            // $("UploadedImage").append('<img src="/Scripts/UploadedImage/' + response + '"class="img-responsive thumbnail"/>');
+    //        }
+    //    })
+    //}
+    var SendOTP = function () {
+
+        $.ajax({
+            url: "/Test/SendOTP",
+            type: "post",
+            success: function (data) {
+                if (data == "success") {
+
+                    alert("OTP sent successfully");
+                    window.location = "/Test/EnterOTP";
+                }
+                else {
+                    alert("failed");
+                }
+            }
+
+
+        })
+
+    }
+
+</script>

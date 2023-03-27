@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+    <div class="col-md-3">
+        @{Html.RenderAction("SideMenu", "Test"); }
+    </div>
+    <div class="col-md-3">
+
+        <h2>@ViewBag.EmpName</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>EmployeeId</th>
+                    <th>Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if(ViewBag.EmployeeList!=null)
+                {
+                    foreach(var item in ViewBag.EmployeeList)
+                    {
+                        <tr>
+                            <td>@item.EmployeeId</td>
+                            <td>@item.Name</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+

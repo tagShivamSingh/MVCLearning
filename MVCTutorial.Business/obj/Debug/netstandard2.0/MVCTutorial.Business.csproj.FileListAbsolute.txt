@@ -1,0 +1,13 @@
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\bin\Debug\netstandard2.0\MVCTutorial.Business.deps.json
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\bin\Debug\netstandard2.0\MVCTutorial.Business.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\bin\Debug\netstandard2.0\MVCTutorial.Business.pdb
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.csprojAssemblyReference.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.AssemblyInfoInputs.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.AssemblyInfo.cs
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.csproj.CoreCompileInputs.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.pdb
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\bin\Debug\netstandard2.0\MVCLearning.Domain.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\bin\Debug\netstandard2.0\MVCLearning.Domain.pdb
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\obj\Debug\netstandard2.0\MVCTutorial.Business.csproj.CopyComplete
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCTutorial.Business\bin\Debug\netstandard2.0\MVCLearning.Reposit.dll

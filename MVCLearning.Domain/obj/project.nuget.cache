@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "LxqzxJCqk+lJovICnzczIM4hfMX/nX4J9L6o3zk8B3KMMWsfhpBiJJpwOKP0d9NZA9siSOV2zT0fwRAaQ0wrFg==",
+  "success": true,
+  "projectFilePath": "D:\\MVC Applications\\MVCLearning\\MVCLearning.Domain\\MVCLearning.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Asus DM226T\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Asus DM226T\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

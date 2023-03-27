@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fe014f2028d34709b1cabae43d684ffa" Name="Diagram1">
+        <EntityTypeShape EntityType="MVCLearningModel.department" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCLearningModel.Employee" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCLearningModel.Site" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <AssociationConnector Association="MVCLearningModel.FK__Employee__DId__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCLearningModel.FK__Site__EmployeeId__4CA06362" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="MVCLearningModel.SiteUser" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="MVCLearningModel.UserRole" Width="1.5" PointX="0.75" PointY="8.125" />
+        <AssociationConnector Association="MVCLearningModel.FK_SiteUser_UserRole" />
+        <EntityTypeShape EntityType="MVCLearningModel.ImageStore" Width="1.5" PointX="3.375" PointY="4.875" />
+        <EntityTypeShape EntityType="MVCLearningModel.Product" Width="1.5" PointX="5.625" PointY="4.875" />
+        <AssociationConnector Association="MVCLearningModel.FK_Product_ImageStore" />
+        <EntityTypeShape EntityType="MVCLearningModel.Country" Width="1.5" PointX="7.375" PointY="1" />
+        <EntityTypeShape EntityType="MVCLearningModel.State" Width="1.5" PointX="9.625" PointY="0.875" />
+        <AssociationConnector Association="MVCLearningModel.FK_State_Country" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

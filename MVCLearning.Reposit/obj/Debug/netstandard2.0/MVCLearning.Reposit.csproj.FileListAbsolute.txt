@@ -1,0 +1,8 @@
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\bin\Debug\netstandard2.0\MVCLearning.Reposit.deps.json
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\bin\Debug\netstandard2.0\MVCLearning.Reposit.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\obj\Debug\netstandard2.0\MVCLearning.Reposit.csprojAssemblyReference.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\obj\Debug\netstandard2.0\MVCLearning.Reposit.AssemblyInfoInputs.cache
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\obj\Debug\netstandard2.0\MVCLearning.Reposit.AssemblyInfo.cs
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\bin\Debug\netstandard2.0\MVCLearning.Domain.dll
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\bin\Debug\netstandard2.0\MVCLearning.Domain.pdb
+C:\Users\Asus DM226T\source\repos\MVCLearning\MVCLearning.Reposit\obj\Debug\netstandard2.0\MVCLearning.Reposit.csproj.CopyComplete

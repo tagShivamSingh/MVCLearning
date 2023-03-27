@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCLearningModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="department">
+    <Key>
+      <PropertyRef Name="DId" />
+    </Key>
+    <Property Name="DId" Type="Int32" Nullable="false" />
+    <Property Name="dname" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK__Employee__DId__49C3F6B7" FromRole="department" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeId" />
+    </Key>
+    <Property Name="EmployeeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DId" Type="Int32" />
+    <NavigationProperty Name="department" Relationship="Self.FK__Employee__DId__49C3F6B7" FromRole="Employee" ToRole="department" />
+    <NavigationProperty Name="Sites" Relationship="Self.FK__Site__EmployeeId__4CA06362" FromRole="Employee" ToRole="Site" />
+    <Property Name="IsDelete" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Site">
+    <Key>
+      <PropertyRef Name="SiteId" />
+    </Key>
+    <Property Name="SiteId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmployeeId" Type="Int32" />
+    <Property Name="SiteName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK__Site__EmployeeId__4CA06362" FromRole="Site" ToRole="Employee" />
+  </EntityType>
+  <Association Name="FK__Employee__DId__49C3F6B7">
+    <End Role="department" Type="Self.department" Multiplicity="0..1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="department">
+        <PropertyRef Name="DId" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="DId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Site__EmployeeId__4CA06362">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="0..1" />
+    <End Role="Site" Type="Self.Site" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="EmployeeId" />
+      </Principal>
+      <Dependent Role="Site">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCLearningEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="departments" EntityType="Self.department" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="Sites" EntityType="Self.Site" />
+    <AssociationSet Name="FK__Employee__DId__49C3F6B7" Association="Self.FK__Employee__DId__49C3F6B7">
+      <End Role="department" EntitySet="departments" />
+      <End Role="Employee" EntitySet="Employees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Site__EmployeeId__4CA06362" Association="Self.FK__Site__EmployeeId__4CA06362">
+      <End Role="Employee" EntitySet="Employees" />
+      <End Role="Site" EntitySet="Sites" />
+    </AssociationSet>
+    <EntitySet Name="SiteUsers" EntityType="MVCLearningModel.SiteUser" />
+    <EntitySet Name="UserRoles" EntityType="MVCLearningModel.UserRole" />
+    <AssociationSet Name="FK_SiteUser_UserRole" Association="MVCLearningModel.FK_SiteUser_UserRole">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="SiteUser" EntitySet="SiteUsers" />
+    </AssociationSet>
+    <EntitySet Name="ImageStores" EntityType="MVCLearningModel.ImageStore" />
+    <EntitySet Name="Products" EntityType="MVCLearningModel.Product" />
+    <AssociationSet Name="FK_Product_ImageStore" Association="MVCLearningModel.FK_Product_ImageStore">
+      <End Role="ImageStore" EntitySet="ImageStores" />
+      <End Role="Product" EntitySet="Products" />
+    </AssociationSet>
+    <EntitySet Name="Countries" EntityType="MVCLearningModel.Country" />
+    <EntitySet Name="States" EntityType="MVCLearningModel.State" />
+    <AssociationSet Name="FK_State_Country" Association="MVCLearningModel.FK_State_Country">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="State" EntitySet="States" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="SiteUser">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailId" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleId" Type="Int32" />
+    <NavigationProperty Name="UserRole" Relationship="MVCLearningModel.FK_SiteUser_UserRole" FromRole="SiteUser" ToRole="UserRole" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SiteUsers" Relationship="MVCLearningModel.FK_SiteUser_UserRole" FromRole="UserRole" ToRole="SiteUser" />
+  </EntityType>
+  <Association Name="FK_SiteUser_UserRole">
+    <End Type="MVCLearningModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="MVCLearningModel.SiteUser" Role="SiteUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="SiteUser">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ImageStore">
+    <Key>
+      <PropertyRef Name="ImageId" />
+    </Key>
+    <Property Name="ImageId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ImageByte" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="ImagePath" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Products" Relationship="MVCLearningModel.FK_Product_ImageStore" FromRole="ImageStore" ToRole="Product" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductId" />
+    </Key>
+    <Property Name="ProductId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="ImageId" Type="Int32" />
+    <NavigationProperty Name="ImageStore" Relationship="MVCLearningModel.FK_Product_ImageStore" FromRole="Product" ToRole="ImageStore" />
+  </EntityType>
+  <Association Name="FK_Product_ImageStore">
+    <End Type="MVCLearningModel.ImageStore" Role="ImageStore" Multiplicity="0..1" />
+    <End Type="MVCLearningModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ImageStore">
+        <PropertyRef Name="ImageId" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ImageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="States" Relationship="MVCLearningModel.FK_State_Country" FromRole="Country" ToRole="State" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StateName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int32" />
+    <NavigationProperty Name="Country" Relationship="MVCLearningModel.FK_State_Country" FromRole="State" ToRole="Country" />
+  </EntityType>
+  <Association Name="FK_State_Country">
+    <End Type="MVCLearningModel.Country" Role="Country" Multiplicity="0..1" />
+    <End Type="MVCLearningModel.State" Role="State" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="State">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

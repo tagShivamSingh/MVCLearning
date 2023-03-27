@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MVCLearning.Domain\MVCLearning.Domain.csproj" />
+    <ProjectReference Include="..\MVCLearning.Reposit\MVCLearning.Reposit.csproj" />
+  </ItemGroup>
+
+</Project>
